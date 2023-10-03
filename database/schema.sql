@@ -1,12 +1,11 @@
 CREATE TABLE users(
-    id serial PRIMARY KEY,
-    username VARCHAR(15),
+    username VARCHAR(15) PRIMARY KEY,
     userRole VARCHAR(10)
 );
 
 CREATE TABLE shifts(
-    employeeId int, 
-    FOREIGN KEY (employeeId) REFERENCES users(id),
+    employee VARCHAR(15), 
+    FOREIGN KEY (employee) REFERENCES users(username),
     MONDAY boolean,
     TUESDAY boolean,
     WEDNESDAY boolean,
