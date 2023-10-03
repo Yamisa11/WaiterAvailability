@@ -10,23 +10,23 @@ export default function WaiterAvailability(database) {
     }
 
     async function getTuesdayRoster(){
-        let monRoster = await database.getEmployees('TUESDAY')
-        return monRoster
+        let tuesRoster = await database.getEmployees('TUESDAY')
+        return tuesRoster
     }
 
     async function getWednesdayRoster(){
-        let monRoster = await database.getEmployees('WEDNESDAY')
-        return monRoster 
+        let wedRoster = await database.getEmployees('WEDNESDAY')
+        return wedRoster 
     }
 
     async function getThursdayRoster(){
-        let monRoster = await database.getEmployees('THURSDAY')
-        return monRoster
+        let thursRoster = await database.getEmployees('THURSDAY')
+        return thursRoster
     }
 
     async function getFridayRoster(){
-        let monRoster = await database.getEmployees('FRIDAY')
-        return monRoster 
+        let friRoster = await database.getEmployees('FRIDAY')
+        return friRoster 
     }
 
     async function getSaturdayRoster(){
