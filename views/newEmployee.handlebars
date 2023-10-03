@@ -1,8 +1,12 @@
 <div class="new">
     <h1>Please enter employee details below: </h1>
 
-    <form action="" method="post">
-        <label>Enter username:  <input type="text"> </label>
-        
+    <form action="/create" method="post">
+        <label>Enter username:  <input type="text" name="theUsername"> </label>
+
+        <label> Admin<input type="radio" name="theRole" value="admin"> </label>
+        <label> Employee<input type="radio" name="theRole" value="employee"> </label>
+
+        <button type="submit">submit</button>
     </form>
 </div>

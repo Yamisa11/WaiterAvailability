@@ -67,6 +67,18 @@ app.get("/waiters/:username", (req,res) => {
     })
 })
 
+app.post("/create", async (req,res) => {
+    let theEmployee = req.body.theUsername
+    let theRole = req.body.theRole
+  
+    await waiterFunction.setUsers(theEmployee,theRole)
+    res.redirect("")
+})
+
+app.get("/create", (req,res) => {
+    res.render("newEmployee")
+})
+
 let PORT = process.env.PORT || 8008;
 app.listen(PORT, () => {
   console.log("App started...", PORT);
