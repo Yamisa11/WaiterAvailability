@@ -13,10 +13,13 @@ export default function WaiterAvailabilityDB(database){
         return result;
       }
       
-
+    async function updateEmployeeRoster(theDay,username){
+        await database.any(`UPDATE shifts SET ${theDay} = true WHERE employee = $1`, [username] )
+    }
 
     return{
         createUser,
-        getEmployees
+        getEmployees,
+        updateEmployeeRoster
     }
 }

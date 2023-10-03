@@ -33,6 +33,9 @@ export default function WaiterAvailability(database) {
         let satRoster = await database.getEmployees('SATURDAY')
         return satRoster  
     }
+    async function updateRoster(theDay,employee){
+        await database.updateEmployeeRoster(theDay,employee)
+    }
 
     return{
         setUsers,
@@ -41,6 +44,7 @@ export default function WaiterAvailability(database) {
         getSaturdayRoster,
         getThursdayRoster,
         getWednesdayRoster,
-        getTuesdayRoster
+        getTuesdayRoster,
+        updateRoster
     }
 }

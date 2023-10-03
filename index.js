@@ -47,8 +47,24 @@ app.get("/", async (req, res) => {
     });
   })
 
-app.post("/waiters/:username", (req,res) => {
-    
+app.post("/waiters/:username", async (req,res) => {
+    let username = req.params.username;
+
+    let selectedDays = req.body.days
+
+    for (let i = 0; i < selectedDays.length; i++) {
+        const element = selectedDays[i];
+
+        await waiterFunction.updateRoster(element,username)
+    }
+    res.redirect('employee')
+
+})
+app.get("/waiters/:username", (req,res) => {
+    let username = req.params.username
+    res.render("employee", {
+        username: username
+    })
 })
 
 let PORT = process.env.PORT || 8008;
