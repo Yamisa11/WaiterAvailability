@@ -29,10 +29,21 @@ app.use(
 );
 app.use(flash());
 
-app.get("/", (req, res) => {
-  
+app.get("/", async (req, res) => {
+  let monday = await waiterFunction.getMondayRoster()
+  let tuesday = await waiterFunction.getTuesdayRoster()
+  let wednesday = await waiterFunction.getWednesdayRoster()
+  let thursday = await waiterFunction.getThursdayRoster()
+  let friday = await waiterFunction.getFridayRoster()
+  let saturday = await waiterFunction.getSaturdayRoster()
+  console.log(monday);
     res.render("index", {
-      regError: newRegError
+      MONDAY: monday,
+      TUESDAY: tuesday,
+      WEDNESDAY : wednesday,
+      THURSDAY : thursday,
+      FRIDAY : friday,
+      SATURDAY : saturday
     });
   })
 
