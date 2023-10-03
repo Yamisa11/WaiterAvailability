@@ -7,5 +7,6 @@ CREATE TABLE users(
 CREATE TABLE shifts(
     employeeId int, 
     FOREIGN KEY (employeeId) REFERENCES users(id),
-    
+    MONDAY boolean
+
 );
