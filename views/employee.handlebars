@@ -1,0 +1,25 @@
+<div class="employee">
+    <h1>Roster for <span>{{username}}</span></h1>
+
+    <form action="/waiters/{{username}}" method="post">
+     <label>
+            <input type="checkbox" name="monday" value="MONDAY"> Monday
+        </label><br>
+        <label>
+            <input type="checkbox" name="tuesday" value="TUESDAY"> Tuesday
+        </label><br>
+        <label>
+            <input type="checkbox" name="wednesday" value="WEDNESDAY"> Wednesday
+        </label><br>
+        <label>
+            <input type="checkbox" name="thursday" value="THURSDAY"> Thursday
+        </label><br>
+        <label>
+            <input type="checkbox" name="friday" value="FRIDAY"> Friday
+        </label><br>
+        <label>
+            <input type="checkbox" name="saturday" value="SATURDAY"> Saturday
+        </label>
+        <button type="submit">submit</button>
+    </form>
+</div>

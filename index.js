@@ -47,6 +47,10 @@ app.get("/", async (req, res) => {
     });
   })
 
+app.post("/waiters/:username", (req,res) => {
+    
+})
+
 let PORT = process.env.PORT || 8008;
 app.listen(PORT, () => {
   console.log("App started...", PORT);
