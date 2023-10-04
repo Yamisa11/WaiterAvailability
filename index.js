@@ -36,7 +36,6 @@ app.get("/", async (req, res) => {
   let thursday = await waiterFunction.getThursdayRoster()
   let friday = await waiterFunction.getFridayRoster()
   let saturday = await waiterFunction.getSaturdayRoster()
-  console.log(monday);
     res.render("index", {
       MONDAY: monday,
       TUESDAY: tuesday,
@@ -57,7 +56,7 @@ app.post("/waiters/:username", async (req,res) => {
 
         await waiterFunction.updateRoster(element,username)
     }
-    res.redirect('employee')
+   
 
 })
 app.get("/waiters/:username", (req,res) => {
@@ -72,7 +71,7 @@ app.post("/create", async (req,res) => {
     let theRole = req.body.theRole
   
     await waiterFunction.setUsers(theEmployee,theRole)
-    res.redirect("")
+    res.redirect("/create")
 })
 
 app.get("/create", (req,res) => {
