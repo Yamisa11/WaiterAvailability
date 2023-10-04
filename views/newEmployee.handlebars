@@ -1,12 +1,15 @@
 <div class="new">
     <h1>Please enter employee details below: </h1>
+    <p>The employee username must be unique. </p>
 
     <form action="/create" method="post">
-        <label>Enter username:  <input type="text" name="theUsername"> </label>
+        <label class="create">Enter username:  <input type="text" name="theUsername"> </label>
 
-        <label> Admin<input type="radio" name="theRole" value="admin"> </label>
-        <label> Employee<input type="radio" name="theRole" value="employee"> </label>
+      <div class="radio">
+          <label class="create"> Admin<input type="radio" name="theRole" value="admin"> </label>
+        <label class="create"> Employee<input type="radio" name="theRole" value="employee"> </label>
+      </div>
 
-        <button type="submit">submit</button>
+        <button type="submit">submit</button> <a href="/"><button>cancel</button></a>
     </form>
 </div>
