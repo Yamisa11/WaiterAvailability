@@ -2,6 +2,7 @@ export default function WaiterAvailabilityDB(database){
 
     async function createUser(username,theRole) {
         await database.oneOrNone('INSERT INTO users (username, userrole) VALUES ($1, $2)', [username, theRole])
+        await database.none('INSERT INTO shifts (employee, monday, tuesday, wednesday, thursday, friday, saturday) VALUES ($1, false, false, false, false, false, false)', [username])
     }
     async function getEmployees(theDay) {
         let result =[]
