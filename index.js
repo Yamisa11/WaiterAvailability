@@ -56,7 +56,7 @@ app.post("/waiters/:username", async (req,res) => {
 
         await waiterFunction.updateRoster(element,username)
     }
-   
+   res.redirect("/waiters/:username")
 
 })
 app.get("/waiters/:username", (req,res) => {
