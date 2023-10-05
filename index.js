@@ -60,7 +60,8 @@ app.post("/waiters/:username", async (req,res) => {
 
 })
 app.get("/waiters/:username", (req,res) => {
-    let username = req.params.username
+    
+         
     res.render("employee", {
         username: username
     })
