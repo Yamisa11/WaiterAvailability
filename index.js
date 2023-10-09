@@ -55,8 +55,7 @@ app.get("/waiters/:username", (req,res) => {
 app.post("/create", async (req,res) => {
     
   
-    await waiterFunction.setUsers(theEmployee,theRole)
-    res.redirect("/create")
+  
 })
 
 app.get("/create", (req,res) => {
