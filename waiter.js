@@ -4,6 +4,7 @@ export default function WaiterAvailability(database) {
     await database.createRoster(theWaiterId,theDaysId)
   }
 
+
     return{
     addShift
     }

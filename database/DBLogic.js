@@ -15,17 +15,6 @@ export default function WaiterDBLogic(database) {
         await database.none('INSERT INTO shifts (waiterid, weekdayid) VALUES ($1, $2)', [waiterid, weekdayid]);
     }
 
-    // async function joinQuery() {
-    //     const daysQuery = `
-    //                 SELECT  * FROM schedule
-    //                 JOIN weekdays ON weekdays.id = schedule.weekday_id
-    //                 JOIN waiters ON waiters.id = schedule.waiter_id
-    //             `;
-
-    //     const results = await database.any(daysQuery);
-    //     return results;
-    // }
-
 
 
     async function getWaiterId(username) {
@@ -46,7 +35,6 @@ export default function WaiterDBLogic(database) {
         checkExistingWaiter,
         getWeekdayId,
         createRoster,
-        joinQuery,
         getWaiterId,
         reset,
 
