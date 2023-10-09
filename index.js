@@ -30,12 +30,7 @@ app.use(
 app.use(flash());
 
 app.get("/", async (req, res) => {
-  let monday = await waiterFunction.getMondayRoster()
-  let tuesday = await waiterFunction.getTuesdayRoster()
-  let wednesday = await waiterFunction.getWednesdayRoster()
-  let thursday = await waiterFunction.getThursdayRoster()
-  let friday = await waiterFunction.getFridayRoster()
-  let saturday = await waiterFunction.getSaturdayRoster()
+
     res.render("index", {
       MONDAY: monday,
       TUESDAY: tuesday,
