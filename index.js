@@ -53,8 +53,7 @@ app.get("/waiters/:username", (req,res) => {
 })
 
 app.post("/create", async (req,res) => {
-    let theEmployee = req.body.theUsername
-    let theRole = req.body.theRole
+    
   
     await waiterFunction.setUsers(theEmployee,theRole)
     res.redirect("/create")
