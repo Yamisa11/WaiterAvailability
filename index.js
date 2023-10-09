@@ -42,16 +42,9 @@ app.get("/", async (req, res) => {
   })
 
 app.post("/waiters/:username", async (req,res) => {
-    let username = req.params.username;
-
-    let selectedDays = req.body.days
-
-    for (let i = 0; i < selectedDays.length; i++) {
-        const element = selectedDays[i];
-
-        await waiterFunction.updateRoster(element,username)
-    }
-   res.redirect("/waiters/:username")
+ 
+    
+ 
 
 })
 app.get("/waiters/:username", (req,res) => {
