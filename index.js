@@ -49,10 +49,7 @@ app.post("/waiters/:username", async (req,res) => {
 })
 app.get("/waiters/:username", (req,res) => {
     
-         
-    res.render("employee", {
-        username: username
-    })
+   
 })
 
 app.post("/create", async (req,res) => {
