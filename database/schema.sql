@@ -1,22 +1,19 @@
 
+CREATE TABLE waiters(
+ id serial PRIMARY KEY,
+ username VARCHAR (15)
+);
 
-
--- CREATE TABLE waiters (
---  id serial PRIMARY KEY,
---  username VARCHAR NOT NULL
--- );
-
--- CREATE TABLE weekdays (
---     id serial PRIMARY KEY,
---     weekday VARCHAR NOT NULL
--- );
-
-CREATE TABLE schedule (
+CREATE TABLE days(
     id serial PRIMARY KEY,
-    waiter_id INTEGER,
-    weekday_id INTEGER, 
-    FOREIGN KEY(waiter_id) REFERENCES waiters(id),
-   FOREIGN KEY(weekday_id) REFERENCES weekdays(id)
-)
+    weekday VARCHAR (15)
+);
+
+CREATE TABLE shifts(
+    waiterid INTEGER,
+    weekdayid INTEGER, 
+    FOREIGN KEY(waiterid) REFERENCES waiters(id),
+   FOREIGN KEY(weekdayid) REFERENCES days(id)
+);
 
 
