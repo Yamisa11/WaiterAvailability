@@ -15,8 +15,6 @@ export default function WaiterDBLogic(database) {
         await database.none('INSERT INTO shifts (waiterid, weekdayid) VALUES ($1, $2)', [waiterid, weekdayid]);
     }
 
-
-
     async function getWaiterId(username) {
         const result = await database.one('SELECT id FROM waiters WHERE username = $1', [username]);
 
@@ -24,6 +22,9 @@ export default function WaiterDBLogic(database) {
             return result.id;
         }
     
+    }
+    async function getWeekday(id){
+        await database.any('SELECT weekday FROM days WHERE id = $1',[id])
     }
 
     async function reset() {
@@ -37,6 +38,6 @@ export default function WaiterDBLogic(database) {
         createRoster,
         getWaiterId,
         reset,
-
+        getWeekday
     }
 }
