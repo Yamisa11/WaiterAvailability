@@ -11,7 +11,7 @@ const app = express();
 let database = waiterDB(DBJS);
 
 let waiterFunction = waiterAvailability(database)
-
+let waitersList
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", "./views");
@@ -29,15 +29,11 @@ app.use(
 );
 app.use(flash());
 
-app.get("/", async (req, res) => {
-
-    res.render("index", {
-      MONDAY: monday,
-      TUESDAY: tuesday,
-      WEDNESDAY : wednesday,
-      THURSDAY : thursday,
-      FRIDAY : friday,
-      SATURDAY : saturday
+app.get("/days", async (req, res) => {
+  waitersList = await waiterFunction.getAllWaiters()
+  
+    res.render("index",{
+      waitersList : waitersList
     });
   })
 

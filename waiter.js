@@ -4,8 +4,12 @@ export default function WaiterAvailability(database) {
     await database.createRoster(theWaiterId,theDaysId)
   }
 
-
+async function getAllWaiters(){
+    let waiters = await database.getWaiters()
+    return waiters
+}
     return{
-    addShift
+    addShift,
+    getAllWaiters
     }
 }

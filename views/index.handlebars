@@ -2,34 +2,18 @@
     <h1>Roster</h1>
     <table>
   <tr>
-    <th>DAYS</th>
     <th>EMPLOYEES</th>
+    <th>DAYS</th>
+    <th>SELECT DAYS</th>
   </tr>
+  {{#each waitersList}}
   <tr>
+    <td>{{username}}</td>
     <td>MONDAY</td>
-    <td>{{MONDAY}}</td>
-  </tr>
-   <tr>
-    <td>TUESDAY</td>
-    <td>{{TUESDAY}}</td>
-  </tr>
-   <tr>
-    <td>WEDNESDAY</td>
-    <td>{{WEDNESDAY}}</td>
-  </tr>
-   <tr>
-    <td>THURSDAY</td>
-    <td>{{THURSDAY}}</td>
-  </tr>
-   <tr>
-    <td>FRIDAY</td>
-    <td>{{FRIDAY}}</td>
-  </tr>
-   <tr>
-    <td>SATURDAY</td>
-    <td>{{SATURDAY}}</td>
+    <td> <button>select</button> </td>
   </tr>
   
+  {{/each}}
 
 </table>
 

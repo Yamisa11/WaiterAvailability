@@ -26,6 +26,10 @@ export default function WaiterDBLogic(database) {
     async function getWeekday(id){
         await database.any('SELECT weekday FROM days WHERE id = $1',[id])
     }
+    async function getWaiters(){
+        const result = await database.any('SELECT username FROM waiters')
+        return result
+    }
 
     async function reset() {
         await database.none('DELETE FROM schedule')
@@ -38,6 +42,7 @@ export default function WaiterDBLogic(database) {
         createRoster,
         getWaiterId,
         reset,
-        getWeekday
+        getWeekday,
+        getWaiters
     }
 }
