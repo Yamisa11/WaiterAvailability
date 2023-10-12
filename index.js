@@ -31,9 +31,13 @@ app.use(flash());
 
 app.get("/days", async (req, res) => {
   waitersList = await waiterFunction.getAllWaiters()
-  
+  let theWaiters = await database.getWaiters()
+  let rosterDays = await waiterFunction.assignDays()
+  console.log(rosterDays);
+
     res.render("index",{
-      waitersList : waitersList
+      waitersList : rosterDays,
+      theWaiters: theWaiters
     });
   })
 

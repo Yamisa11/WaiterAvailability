@@ -1,23 +1,76 @@
-<div class="admin">
-    <h1>Roster</h1>
-    <table>
-  <tr>
-    <th>EMPLOYEES</th>
-    <th>DAYS</th>
-    <th>SELECT DAYS</th>
-  </tr>
-  {{#each waitersList}}
-  <tr>
-    <td>{{username}}</td>
-    <td>MONDAY</td>
-    <td> <button>select</button> </td>
-  </tr>
-  
-  {{/each}}
+<div class="container">
 
-</table>
+    <section class="main">
+      <div class="main-top">
+        <h1>Waiters</h1>
+       
+      </div>
+      <div class="users">
+        <div class="card">
+          <img src="./pic/img1.jpg">
+          <h4>Sam David</h4>
+          <p>Ui designer</p>
+         
+          <button>Profile</button>
+        </div>
+        <div class="card">
+          <img src="./pic/img2.jpg">
+          <h4>Balbina kherr</h4>
+          <p>Progammer</p>
+         
+          <button>Profile</button>
+        </div>
+        <div class="card">
+          <img src="./pic/img3.jpg">
+          <h4>Badan John</h4>
+          <p>tester</p>
+          
+          <button>Profile</button>
+        </div>
+        <div class="card">
+          <img src="./pic/img4.jpg">
+          <h4>Salina micheal</h4>
+          <p>Ui designer</p>
+          <button>Profile</button>
+        </div>
+      </div>
 
- <div class="nav">
-		<a href="/create"><button>new employee</button></a>
-	</div>
-</div>
+      <section class="attendance">
+        <div class="attendance-list">
+          <h1>Roster</h1>
+          <table class="table">
+            <thead>
+              <tr>
+               
+                <th>Weekday</th>
+                <th>Waiters</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>{{waitersList.Monday}}</td>
+              </tr>
+                 <tr>
+                <td>Tuesday</td>
+                <td>{{waitersList.Tuesday}}</td>
+              </tr>
+               <tr>
+                <td>Wednesday</td>
+                <td>{{waitersList.Wednesday}}</td>
+              </tr>
+                 <tr>
+                <td>Thursday</td>
+                <td>{{waitersList.Thursday}}</td>
+              </tr>
+                  <tr>
+                <td>Friday</td>
+                <td>{{waitersList.Friday}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </div>

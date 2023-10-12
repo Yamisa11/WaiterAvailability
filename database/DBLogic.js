@@ -23,6 +23,15 @@ export default function WaiterDBLogic(database) {
         }
     
     }
+    async function joinFunction(){
+        const daysQuery = `
+                    SELECT  * FROM shifts  
+                    JOIN days ON days.id = shifts.weekdayid
+                    JOIN waiters ON waiters.id = shifts.waiterid
+                `
+                const results = await database.any(daysQuery);
+                return results;
+    }
     async function getWeekday(id){
         await database.any('SELECT weekday FROM days WHERE id = $1',[id])
     }
@@ -43,6 +52,7 @@ export default function WaiterDBLogic(database) {
         getWaiterId,
         reset,
         getWeekday,
-        getWaiters
+        getWaiters,
+        joinFunction
     }
 }

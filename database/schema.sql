@@ -1,4 +1,3 @@
-
 CREATE TABLE waiters(
  id serial PRIMARY KEY,
  username VARCHAR (15)
@@ -13,7 +12,7 @@ CREATE TABLE shifts(
     waiterid INTEGER,
     weekdayid INTEGER, 
     FOREIGN KEY(waiterid) REFERENCES waiters(id),
-   FOREIGN KEY(weekdayid) REFERENCES days(id)
+    FOREIGN KEY(weekdayid) REFERENCES days(id)
 );
 
 
