@@ -6,33 +6,13 @@
        
       </div>
       <div class="users">
+       {{#each theWaiters}}
         <div class="card">
-          <img src="./pic/img1.jpg">
-          <h4>Sam David</h4>
-          <p>Ui designer</p>
-         
-          <button>Profile</button>
+          <h4><span>Name: </span>{{username}}</h4>
+          <p><span>ID: </span>{{id}}</p>
+          <button>Add days<a href="/waiters/{{username}}"></a></button>
         </div>
-        <div class="card">
-          <img src="./pic/img2.jpg">
-          <h4>Balbina kherr</h4>
-          <p>Progammer</p>
-         
-          <button>Profile</button>
-        </div>
-        <div class="card">
-          <img src="./pic/img3.jpg">
-          <h4>Badan John</h4>
-          <p>tester</p>
-          
-          <button>Profile</button>
-        </div>
-        <div class="card">
-          <img src="./pic/img4.jpg">
-          <h4>Salina micheal</h4>
-          <p>Ui designer</p>
-          <button>Profile</button>
-        </div>
+       {{/each}}
       </div>
 
       <section class="attendance">

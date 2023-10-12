@@ -43,13 +43,16 @@ app.get("/days", async (req, res) => {
 
 app.post("/waiters/:username", async (req,res) => {
  
-    
+   let theDays = req.body.days
+   console.log(theDays);
  
 
 })
 app.get("/waiters/:username", (req,res) => {
-    
-   
+    let username = req.params.username
+   res.render("employee",{
+    theUsername: username
+   })
 })
 
 app.post("/create", async (req,res) => {

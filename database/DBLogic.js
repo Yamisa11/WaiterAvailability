@@ -11,10 +11,6 @@ export default function WaiterDBLogic(database) {
         let weekday_id = await database.one('SELECT id FROM weekdays WHERE weekday=$1', [day])
         return weekday_id;
     }
-    async function createRoster(waiterid, weekdayid) {
-        await database.none('INSERT INTO shifts (waiterid, weekdayid) VALUES ($1, $2)', [waiterid, weekdayid]);
-    }
-
     async function getWaiterId(username) {
         const result = await database.one('SELECT id FROM waiters WHERE username = $1', [username]);
 
@@ -23,6 +19,11 @@ export default function WaiterDBLogic(database) {
         }
     
     }
+    async function createRoster(waiterid, weekdayid) {
+        await database.none('INSERT INTO shifts (waiterid, weekdayid) VALUES ($1, $2)', [waiterid, weekdayid]);
+    }
+
+    
     async function joinFunction(){
         const daysQuery = `
                     SELECT  * FROM shifts  
@@ -36,7 +37,7 @@ export default function WaiterDBLogic(database) {
         await database.any('SELECT weekday FROM days WHERE id = $1',[id])
     }
     async function getWaiters(){
-        const result = await database.any('SELECT username FROM waiters')
+        const result = await database.any('SELECT * FROM waiters')
         return result
     }
 
