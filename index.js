@@ -51,7 +51,7 @@ app.post("/waiters/:username", async (req,res) => {
    console.log(user);
    console.log(waiterId);
  
-
+res.redirect("index")
 })
 app.get("/waiters/:username", (req,res) => {
     let username = req.params.username

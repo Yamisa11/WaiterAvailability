@@ -20,7 +20,7 @@ export default function WaiterDBLogic(database) {
     
     }
     async function createRoster(waiterid, weekdayid) {
-        await database.none('INSERT INTO shifts (waiterid, weekdayid) VALUES ($1, $2)', [waiterid, weekdayid]);
+        await database.any('INSERT INTO shifts (waiterid, weekdayid) VALUES ($1, $2)', [waiterid, weekdayid]);
     }
 
     
@@ -42,7 +42,7 @@ export default function WaiterDBLogic(database) {
     }
 
     async function reset() {
-        await database.none('DELETE FROM schedule')
+        await database.none('DELETE FROM shifts')
     }
 
  
