@@ -42,9 +42,14 @@ app.get("/days", async (req, res) => {
   })
 
 app.post("/waiters/:username", async (req,res) => {
- 
-   let theDays = req.body.days
+  let theDays = req.body.days
+  let user = req.params.username
+  let waiterId = await database.getWaiterId(user)
+ await waiterFunction.addShift(waiterId,theDays)
+
    console.log(theDays);
+   console.log(user);
+   console.log(waiterId);
  
 
 })

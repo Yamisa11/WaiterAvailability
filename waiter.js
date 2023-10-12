@@ -2,7 +2,13 @@ export default function WaiterAvailability(database) {
  
 
   async function addShift(theWaiterId,theDaysId){
-    await database.createRoster(theWaiterId,theDaysId)
+
+    for (let i = 0; i < theDaysId.length; i++) {
+      const element = theDaysId[i];
+      await database.createRoster(theWaiterId,element)
+      
+    }
+
   }
 
 async function getAllWaiters(){
