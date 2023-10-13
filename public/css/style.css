@@ -149,3 +149,9 @@ table thead tr{
   color: #fff;
   transition: 0.5rem;
 }
+.reset{
+    background: #4AD489;
+    color: #fff;
+    float: right;
+    font-size: large; 
+}
