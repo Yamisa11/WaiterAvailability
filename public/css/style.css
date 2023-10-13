@@ -137,21 +137,19 @@ table thead tr{
 .table tbody tr:last-of-type{
   border-bottom: 2px solid #4AD489;
 }
-.table button{
-  padding: 6px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid #4AD489;
-}
-.table button:hover{
-  background: #4AD489;
-  color: #fff;
-  transition: 0.5rem;
-}
+
+
 .reset{
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #4AD489;
+    float: right;
+    font-size: large;
+}
+.reset:hover{
     background: #4AD489;
     color: #fff;
-    float: right;
-    font-size: large; 
-}
+    transition: 0.5rem;
+  }

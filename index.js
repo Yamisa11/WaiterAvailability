@@ -60,14 +60,9 @@ app.get("/waiters/:username", (req,res) => {
    })
 })
 
-app.post("/create", async (req,res) => {
-    
-  
-  
-})
-
-app.get("/create", (req,res) => {
-    res.render("newEmployee")
+app.post("/reset", async (req,res) => {
+  await database.reset()
+  res.redirect("/index")
 })
 
 let PORT = process.env.PORT || 8008;
