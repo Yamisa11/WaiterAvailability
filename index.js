@@ -24,7 +24,7 @@ app.use(
   session({
     resave: false,
     saveUninitialized: true,
-    secret: "Yamisa",
+    secret: "Yams",
   })
 );
 app.use(flash());
