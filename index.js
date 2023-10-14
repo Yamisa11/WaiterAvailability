@@ -46,10 +46,6 @@ app.post("/waiters/:username", async (req,res) => {
   let user = req.params.username
   let waiterId = await database.getWaiterId(user)
  await waiterFunction.addShift(waiterId,theDays)
-
-   console.log(theDays);
-   console.log(user);
-   console.log(waiterId);
  
 res.redirect("index")
 })
