@@ -61,7 +61,7 @@ app.post("/reset", async (req,res) => {
   res.redirect("/index")
 })
 
-let PORT = process.env.PORT || 8008;
+let PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log("App started...", PORT);
 });
