@@ -18,7 +18,7 @@ app.set("views", "./views");
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
-// parse application/ json
+
 app.use(bodyParser.json());
 app.use(
   session({
@@ -39,6 +39,7 @@ app.get("/days", async (req, res) => {
   let thursClass = await waiterFunction.checkClass(rosterDays.Thursday)
   let friClass = await waiterFunction.checkClass(rosterDays.Friday)
   let resetMsg = req.flash("resetMsg")
+  let addMsg = req.flash("addMsg")
   console.log(wedClass);
   console.log(rosterDays);
 
@@ -50,7 +51,9 @@ app.get("/days", async (req, res) => {
       wedClass : wedClass,
       thursClass : thursClass,
       friClass : friClass,
-      resetMessage: resetMsg
+      resetMessage: resetMsg,
+      addMsg : addMsg
+
 
     });
   })
@@ -60,10 +63,7 @@ app.post("/waiters/:username", async (req,res) => {
   let user = req.params.username
   let waiterId = await database.getWaiterId(user)
  await waiterFunction.addShift(waiterId,theDays)
-
-   console.log(theDays);
-   console.log(user);
-   console.log(waiterId);
+ req.flash("addMsg", "Successfully added to the roster!")
  
 res.redirect("index")
 })
