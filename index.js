@@ -24,7 +24,7 @@ app.use(
   session({
     resave: false,
     saveUninitialized: true,
-    secret: "Yamisa",
+    secret: "Yams",
   })
 );
 app.use(flash());
@@ -58,7 +58,9 @@ app.post("/waiters/:username", async (req,res) => {
   let waiterId = await database.getWaiterId(user)
  await waiterFunction.addShift(waiterId,theDays)
 
- 
+   console.log(theDays);
+   console.log(user);
+   console.log(waiterId);
  
 res.redirect("index")
 })
@@ -74,7 +76,7 @@ app.post("/reset", async (req,res) => {
   res.redirect("/days")
 })
 
-let PORT = process.env.PORT || 8008;
+let PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log("App started...", PORT);
 });
