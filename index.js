@@ -38,6 +38,7 @@ app.get("/days", async (req, res) => {
   let wedClass = await waiterFunction.checkClass(rosterDays.Wednesday)
   let thursClass = await waiterFunction.checkClass(rosterDays.Thursday)
   let friClass = await waiterFunction.checkClass(rosterDays.Friday)
+  let resetMsg = req.flash("resetMsg")
   console.log(wedClass);
   console.log(rosterDays);
 
@@ -48,7 +49,9 @@ app.get("/days", async (req, res) => {
       tuesClass : tuesClass,
       wedClass : wedClass,
       thursClass : thursClass,
-      friClass : friClass
+      friClass : friClass,
+      resetMessage: resetMsg
+
     });
   })
 
@@ -73,6 +76,7 @@ app.get("/waiters/:username", (req,res) => {
 
 app.post("/reset", async (req,res) => {
   await database.reset()
+  req.flash("resetMsg", "Successfully cleared roster!");
   res.redirect("/days")
 })
 

@@ -1,60 +1,70 @@
 <div class="container">
 
-    <section class="main">
-      <div class="main-top">
-        <h1>Waiters</h1>
-       
-      </div>
-      <div class="users">
-       {{#each theWaiters}}
+  <section class="main">
+    <div class="main-top">
+      <h1>Waiters</h1>
+
+    </div>
+    <div class="users">
+      {{#each theWaiters}}
         <div class="card">
           <h4><span>Name: </span>{{username}}</h4>
           <p><span>ID: </span>{{id}}</p>
           <button>Add days<a href="/waiters/{{username}}"></a></button>
         </div>
-       {{/each}}
+      {{/each}}
+    </div>
+
+    <section class="attendance">
+      <div class="attendance-list">
+        <form action="/reset" method="post">
+          <h1>Roster <button class="reset">Reset roster</button></h1>
+        </form>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Weekday</th>
+              <th>Waiters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="{{monClass}}">
+
+              <td>Monday</td>
+              <td>{{waitersList.Monday}}</td>
+            </tr>
+            <tr class="{{tuesClass}}">
+              <td>Tuesday</td>
+              <td>{{waitersList.Tuesday}}</td>
+            </tr>
+            <tr class="{{wedClass}}">
+              <td>Wednesday</td>
+              <td>{{waitersList.Wednesday}}</td>
+            </tr>
+            <tr class="{{thursClass}}">
+              <td>Thursday</td>
+              <td>{{waitersList.Thursday}}</td>
+            </tr>
+            <tr class="{{friClass}}">
+              <td>Friday</td>
+              <td>{{waitersList.Friday}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      <section class="attendance">
-        <div class="attendance-list">
-         <form action="/reset" method="post">
-         <h1>Roster <button class="reset">Reset roster</button></h1>
-         </form>
-          <table class="table">
-            <thead>
-              <tr>
-               
-                <th>Weekday</th>
-                <th>Waiters</th>
-              
-              </tr>
-            </thead>
-            <tbody>
-             <tr class="{{monClass}}">
-
-
-                <td>Monday</td>
-                <td>{{waitersList.Monday}}</td>
-              </tr>
-                 <tr class="{{tuesClass}}"> 
-                <td>Tuesday</td>
-                <td>{{waitersList.Tuesday}}</td>
-              </tr>
-               <tr class="{{wedClass}}">
-                <td>Wednesday</td>
-                <td>{{waitersList.Wednesday}}</td>
-              </tr>
-                 <tr class="{{thursClass}}">
-                <td>Thursday</td>
-                <td>{{waitersList.Thursday}}</td>
-              </tr>
-                  <tr class="{{friClass}}">
-                <td>Friday</td>
-                <td>{{waitersList.Friday}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
     </section>
-  </div>
+
+    {{#if resetMessage}}
+    <div class="success-msg">
+      <i class="fa fa-check"></i>
+      {{resetMessage}}
+    </div>
+    {{/if}}
+     <script>
+
+        setTimeout(function () {
+        document.querySelector('.success-msg').style.display = 'none'; },
+        3500);
+      </script>
+  </section>
+</div>

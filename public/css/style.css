@@ -1,5 +1,6 @@
 /*  import google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
 *{
   margin: 0;
   padding: 0;
@@ -161,4 +162,15 @@ table thead tr{
 }
 .danger{
   background-color: crimson !important;
+}
+.success-msg {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+  color: #270;
+  background-color: #DFF2BF;
+}
+.employee{
+  margin: auto !important;
+  padding: auto !important;
 }
