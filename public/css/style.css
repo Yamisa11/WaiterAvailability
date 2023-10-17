@@ -153,3 +153,12 @@ table thead tr{
     color: #fff;
     transition: 0.5rem;
   }
+.success{
+  background-color: #6bf677 !important;
+}
+.warning{
+  background-color: rgb(246, 198, 109) !important;
+}
+.danger{
+  background-color: crimson !important;
+}

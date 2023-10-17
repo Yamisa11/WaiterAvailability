@@ -1,16 +1,15 @@
 export default function WaiterAvailability(database) {
-  let message
 
   async function addShift(theWaiterId,theDaysId){
 
     for (let i = 0; i < theDaysId.length; i++) {
-     message= "inside"
+ 
       const element = parseInt(theDaysId[i]);
       console.log(element + " wait " + theWaiterId);
       await database.createRoster(theWaiterId,element)
       
     }
-console.log(message);
+
   }
 
 async function getAllWaiters(){
@@ -29,7 +28,7 @@ async function assignDays(){
   
   results.forEach((item) => {
     const { username, weekday } = item;
-    const day = weekday.charAt(0).toUpperCase() + weekday.slice(1).toLowerCase(); // Capitalize the first letter of the weekday
+    const day = weekday.charAt(0).toUpperCase() + weekday.slice(1).toLowerCase(); 
 
     if (weekdaysData[day]) {
       weekdaysData[day].push(username);
@@ -40,9 +39,20 @@ async function assignDays(){
 
   return weekdaysData;
 }
+async function checkClass(daysArray){
+ if (daysArray.length == 3) {
+  return "success"
+ } else if (daysArray.length < 3 && daysArray.length > 0) {
+  return "warning"
+ } else if (daysArray.length > 3) {
+  return "danger"
+ }
+}
+
     return{
     addShift,
     getAllWaiters,
-    assignDays
+    assignDays,
+    checkClass
     }
 }

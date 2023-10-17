@@ -33,11 +33,22 @@ app.get("/days", async (req, res) => {
   waitersList = await waiterFunction.getAllWaiters()
   let theWaiters = await database.getWaiters()
   let rosterDays = await waiterFunction.assignDays()
+  let monClass = await waiterFunction.checkClass(rosterDays.Monday)
+  let tuesClass = await waiterFunction.checkClass(rosterDays.Tuesday)
+  let wedClass = await waiterFunction.checkClass(rosterDays.Wednesday)
+  let thursClass = await waiterFunction.checkClass(rosterDays.Thursday)
+  let friClass = await waiterFunction.checkClass(rosterDays.Friday)
+  console.log(wedClass);
   console.log(rosterDays);
 
     res.render("index",{
       waitersList : rosterDays,
-      theWaiters: theWaiters
+      theWaiters: theWaiters,
+      monClass : monClass,
+      tuesClass : tuesClass,
+      wedClass : wedClass,
+      thursClass : thursClass,
+      friClass : friClass
     });
   })
 
@@ -47,9 +58,7 @@ app.post("/waiters/:username", async (req,res) => {
   let waiterId = await database.getWaiterId(user)
  await waiterFunction.addShift(waiterId,theDays)
 
-   console.log(theDays);
-   console.log(user);
-   console.log(waiterId);
+ 
  
 res.redirect("index")
 })
@@ -62,7 +71,7 @@ app.get("/waiters/:username", (req,res) => {
 
 app.post("/reset", async (req,res) => {
   await database.reset()
-  res.redirect("/index")
+  res.redirect("/days")
 })
 
 let PORT = process.env.PORT || 8008;
