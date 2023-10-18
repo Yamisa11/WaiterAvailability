@@ -39,7 +39,7 @@ app.get("/days", async (req, res) => {
   let thursClass = await waiterFunction.checkClass(rosterDays.Thursday)
   let friClass = await waiterFunction.checkClass(rosterDays.Friday)
   let resetMsg = req.flash("resetMsg")
-  let addMsg = req.flash("addMsg")
+  
   console.log(wedClass);
   console.log(rosterDays);
 
@@ -52,7 +52,7 @@ app.get("/days", async (req, res) => {
       thursClass : thursClass,
       friClass : friClass,
       resetMessage: resetMsg,
-      addMsg : addMsg
+      
 
 
     });
@@ -62,6 +62,7 @@ app.post("/waiters/:username", async (req,res) => {
   let theDays = req.body.days
   let user = req.params.username
   let waiterId = await database.getWaiterId(user)
+  
  await waiterFunction.addShift(waiterId,theDays)
  req.flash("addMsg", "Successfully added to the roster!")
  
@@ -69,8 +70,10 @@ res.redirect( user)
 })
 app.get("/waiters/:username", (req,res) => {
     let username = req.params.username
+    let addMsg = req.flash("addMsg")
    res.render("employee",{
-    theUsername: username
+    theUsername: username,
+    addMsg : addMsg
    })
 })
 

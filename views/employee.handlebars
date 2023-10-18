@@ -1,5 +1,5 @@
 <div class="employee">
-    <h1>Roster for: <span>{{theUsername}}</span></h1>
+    <h1>update roster for: <span>{{theUsername}}</span></h1>
 
     <form action="/waiters/{{theUsername}}" method="post">
      <label>
@@ -20,4 +20,17 @@
     
        <div> <button type="submit">submit</button></div>
     </form>
+     <a href="/days">Cancel</a> 
+    {{#if addMsg}}
+    <div class="success-msg">
+      <i class="fa fa-check"></i>
+      {{addMsg}}
+    </div>
+    {{/if}}
+     <script>
+
+        setTimeout(function () {
+        document.querySelector('.success-msg').style.display = 'none'; },
+        3500);
+      </script>
 </div>
