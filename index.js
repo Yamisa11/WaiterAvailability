@@ -65,7 +65,7 @@ app.post("/waiters/:username", async (req,res) => {
  await waiterFunction.addShift(waiterId,theDays)
  req.flash("addMsg", "Successfully added to the roster!")
  
-res.redirect("index")
+res.redirect( user)
 })
 app.get("/waiters/:username", (req,res) => {
     let username = req.params.username
