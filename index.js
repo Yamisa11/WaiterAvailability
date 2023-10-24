@@ -45,10 +45,11 @@ app.get("/days", async (req, res) => {
   let wedClass = await waiterFunction.checkClass(rosterDays.Wednesday)
   let thursClass = await waiterFunction.checkClass(rosterDays.Thursday)
   let friClass = await waiterFunction.checkClass(rosterDays.Friday)
+  let results = await database.joinFunction()
   let resetMsg = req.flash("resetMsg")
   
-  console.log(wedClass);
-  console.log(rosterDays);
+ 
+  console.log(results);
 
     res.render("index",{
       waitersList : rosterDays,
@@ -73,7 +74,8 @@ app.post("/waiters/:username", async (req,res) => {
  await waiterFunction.addShift(waiterId,theDays)
  req.flash("addMsg", "Successfully added to the roster!")
  
-res.redirect( user)
+ 
+ res.redirect(user)
 })
 app.get("/waiters/:username", (req,res) => {
     let username = req.params.username
