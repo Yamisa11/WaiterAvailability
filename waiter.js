@@ -49,8 +49,8 @@ async function checkClass(daysArray){
  }
 }
 
-async function getCheckedDays(){
-
+async function getCheckedDays(username){
+  let waiterId = await database.getWaiterId(username)
 }
     return{
     addShift,

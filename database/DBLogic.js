@@ -41,6 +41,10 @@ export default function WaiterDBLogic(database) {
         return result
     }
 
+    async function getWaiterDays(username){
+        let id = await getWaiterId(username)
+        const result = await database.any('')
+    }
     async function reset() {
         await database.none('DELETE FROM shifts')
     }
@@ -54,6 +58,7 @@ export default function WaiterDBLogic(database) {
         reset,
         getWeekday,
         getWaiters,
-        joinFunction
+        joinFunction,
+        getWaiterDays
     }
 }
