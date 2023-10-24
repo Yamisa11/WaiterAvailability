@@ -29,6 +29,13 @@ app.use(
 );
 app.use(flash());
 
+app.get("/", async (req,res) => {
+  let allWaiters = await waiterFunction.getAllWaiters()
+  res.render("login", {
+    allWaiters: allWaiters
+  })
+})
+
 app.get("/days", async (req, res) => {
   waitersList = await waiterFunction.getAllWaiters()
   let theWaiters = await database.getWaiters()
@@ -82,6 +89,7 @@ app.post("/reset", async (req,res) => {
   req.flash("resetMsg", "Successfully cleared roster!");
   res.redirect("/days")
 })
+
 
 let PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {

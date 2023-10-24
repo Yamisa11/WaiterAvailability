@@ -1,0 +1,16 @@
+<div class="login">
+  {{#each allWaiters}}
+    <div class="waiters">
+    <span> {{username}} <a href="waiters/{{username}}">add days</a> </span>
+    </div>
+  {{/each}}
+
+  <div class="adminLogin">
+    <h2>Admin login</h2>
+    <form action="/login" method="post">
+        <input type="text" name="login">
+        <button type="submit">login</button>
+    </form>
+  </div>
+
+</div>
