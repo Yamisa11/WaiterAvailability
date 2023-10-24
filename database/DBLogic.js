@@ -50,9 +50,7 @@ export default function WaiterDBLogic(database) {
 
   async function getWaiterDays(username) {
     let id = await getWaiterId(username);
-    const result = await database.any(
-      `SELECT weekdayid FROM shifts WHERE waiterid = ${id}`
-    );
+    const result = await database.any(`SELECT weekdayid FROM shifts WHERE waiterid = ${id}`);
     return result;
   }
   async function reset() {

@@ -49,8 +49,20 @@ async function checkClass(daysArray){
  }
 }
 
-async function getCheckedDays(username){
-  let waiterId = await database.getWaiterId(username)
+async function getCheckedDays(username,checkboxDays,isWeekdayChecked){
+ let result = await getWaiterDays(username)
+  isWeekdayChecked.checked = false
+
+  // Check if any object in the result has weekdayid equal to 2
+  for (const row of result) {
+      for (let i = 0; i < checkboxDays.length; i++) {
+        const element = checkboxDays[i];
+        if (row.weekdayid === element) {
+          isWeekdayChecked = true;
+          break; // No need to continue checking once found
+      }
+      }
+  }
 }
     return{
     addShift,
