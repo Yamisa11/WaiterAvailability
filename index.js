@@ -69,7 +69,7 @@ app.post("/waiters/:username", async (req,res) => {
   let theDays = req.body.days
   let user = req.params.username
   let waiterId = await database.getWaiterId(user)
-  
+  // console.log(theDays);
  await waiterFunction.addShift(waiterId,theDays)
  req.flash("addMsg", "Successfully added to the roster!")
  

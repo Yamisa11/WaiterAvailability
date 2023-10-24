@@ -49,10 +49,14 @@ async function checkClass(daysArray){
  }
 }
 
+async function getCheckedDays(){
+
+}
     return{
     addShift,
     getAllWaiters,
     assignDays,
-    checkClass
+    checkClass,
+    getCheckedDays
     }
 }
