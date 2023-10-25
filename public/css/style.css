@@ -19,7 +19,7 @@ a{
   width: 280px;
   font-size: 14px;
   color: rgb(85, 83, 83);
-  display: table;
+  
   padding: 10px;
 }
 
@@ -209,4 +209,38 @@ table thead tr{
   background: #4AD489;
   color: #fff;
   transition: 0.5rem;
+}
+.login{
+  padding: auto;
+  margin: auto;
+  margin-top: 10em;
+  width: 50%;
+  text-align: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.login a{
+  text-align: center;
+  width: 80%;
+  margin-top: 15%;
+}
+.login button{
+  width: 20%;
+  margin-top: 8px;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: #4AD489;
+  border: 1px solid #4AD489;
+  font-size: large;
+}
+.login input{
+  border-radius: 10px;
+  font-size: x-large;
+  height: 1.8em;
+}
+.waiters{
+  width: 100%;
+  margin : 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
 }

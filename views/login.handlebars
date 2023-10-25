@@ -1,4 +1,9 @@
-<div class="login">
+<div class="log-page">
+  <h1 style="text-align: center;">Welcome!</h1>
+  <div class="login">
+  <i class='fas fa-user-alt' style='font-size:36px; text-align: center';></i>
+  <h3 style="text-align: center;">login</h3>
+   
   {{#each allWaiters}}
     <div class="waiters">
     <span> {{username}} <a href="waiters/{{username}}">add days</a> </span>
@@ -7,10 +12,18 @@
 
   <div class="adminLogin">
     <h2>Admin login</h2>
-    <form action="/login" method="post">
-        <input type="text" name="login">
+    <form action="/" method="post">
+        <input type="password" name="login">
         <button type="submit">login</button>
     </form>
+    <h5 class="danger">{{msg}}</h5>
+      <script>
+
+        setTimeout(function () {
+        document.querySelector('.danger').style.display = 'none'; },
+        3500);
+      </script>
+  </div>
   </div>
 
 </div>

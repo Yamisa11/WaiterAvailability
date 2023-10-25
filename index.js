@@ -31,9 +31,23 @@ app.use(flash());
 
 app.get("/", async (req,res) => {
   let allWaiters = await waiterFunction.getAllWaiters()
+  let msg = req.flash("msg")
   res.render("login", {
-    allWaiters: allWaiters
+    allWaiters: allWaiters,
+    msg : msg
   })
+})
+
+app.post("/", async (req,res) => {
+  let logPass = req.body.login
+
+  if (logPass == "yamisa") {
+    res.redirect("/days")
+  }
+  else{
+    req.flash("msg", "Incorrect password")
+    res.redirect("/")
+  }
 })
 
 app.get("/days", async (req, res) => {
@@ -67,7 +81,7 @@ app.post("/waiters/:username", async (req,res) => {
   let theDays = req.body.days
   let user = req.params.username
   let waiterId = await database.getWaiterId(user)
-  // console.log(theDays);
+ 
  await waiterFunction.addShift(waiterId,theDays)
  req.flash("addMsg", "Successfully added to the roster!")
  
