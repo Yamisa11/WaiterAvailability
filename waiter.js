@@ -3,7 +3,7 @@ export default function WaiterAvailability(database) {
   async function addShift(theWaiterId,theDaysId){
 let message = ""
    if (theDaysId == undefined) {
-    message = "Please select days"
+    message = "Please select your days"
     return message
    }else{
     for (let i = 0; i < theDaysId.length; i++) {

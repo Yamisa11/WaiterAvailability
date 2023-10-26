@@ -12,6 +12,7 @@ let database = waiterDB(DBJS);
 
 let waiterFunction = waiterAvailability(database)
 let waitersList
+let message
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", "./views");
@@ -82,9 +83,9 @@ app.post("/waiters/:username", async (req,res) => {
   let user = req.params.username
   let waiterId = await database.getWaiterId(user)
  
- await waiterFunction.addShift(waiterId,theDays)
+ message = await waiterFunction.addShift(waiterId,theDays)
  req.flash("addMsg", "Successfully added to the roster!")
- 
+ req.flash("message",message)
  
  res.redirect(user)
 })
@@ -92,12 +93,14 @@ app.get("/waiters/:username", async (req,res) => {
   let amadays = req.body.days
     let username = req.params.username
     let addMsg = req.flash("addMsg")
+    let themsg = req.flash("message")
     let results = await database.getWaiterDays(username)
   
   
    res.render("employee",{
     theUsername: username,
-    addMsg : addMsg
+    addMsg : themsg? "" : addMsg,
+    themsg: themsg
    })
 })
 
