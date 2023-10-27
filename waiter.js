@@ -1,11 +1,8 @@
 export default function WaiterAvailability(database) {
 
   async function addShift(theWaiterId,theDaysId){
-let message = ""
-   if (theDaysId == undefined) {
-    message = "Please select your days"
-    return message
-   }else{
+
+   if (theDaysId != undefined) {
     for (let i = 0; i < theDaysId.length; i++) {
  
       const element = parseInt(theDaysId[i]);
@@ -13,7 +10,7 @@ let message = ""
       await database.createRoster(theWaiterId,element)
       
     }
-
+   
    }
   }
 
@@ -58,13 +55,13 @@ async function getCheckedDays(username,checkboxDays,isWeekdayChecked){
  let result = await getWaiterDays(username)
   isWeekdayChecked.checked = false
 
-  // Check if any object in the result has weekdayid equal to 2
+  
   for (const row of result) {
       for (let i = 0; i < checkboxDays.length; i++) {
         const element = checkboxDays[i];
         if (row.weekdayid === element) {
           isWeekdayChecked = true;
-          break; // No need to continue checking once found
+          break; 
       }
       }
   }

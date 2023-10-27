@@ -83,24 +83,24 @@ app.post("/waiters/:username", async (req,res) => {
   let user = req.params.username
   let waiterId = await database.getWaiterId(user)
  
- message = await waiterFunction.addShift(waiterId,theDays)
+ await waiterFunction.addShift(waiterId,theDays)
  req.flash("addMsg", "Successfully added to the roster!")
- req.flash("message",message)
+ req.flash("message","Please select your days")
  
  res.redirect(user)
 })
 app.get("/waiters/:username", async (req,res) => {
-  let amadays = req.body.days
+  
     let username = req.params.username
     let addMsg = req.flash("addMsg")
     let themsg = req.flash("message")
     let results = await database.getWaiterDays(username)
-  
+  console.log(addMsg);
   
    res.render("employee",{
     theUsername: username,
     addMsg : themsg? "" : addMsg,
-    themsg: themsg
+    themsg: addMsg? "" : themsg
    })
 })
 

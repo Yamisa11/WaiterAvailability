@@ -11,6 +11,11 @@
   font-family: "Poppins", sans-serif;
 }
 body{
+ 
+  background-image: url(../images/back.jpg) ;
+  background-size: cover;
+}
+.container{
   background: rgb(226, 226, 226);
 }
 
@@ -32,7 +37,7 @@ a{
   display: flex;
 }
 
-/* MAin Section */
+/* Main Section */
 .main{
   position: relative;
   padding: 20px;
@@ -94,7 +99,6 @@ a{
   transition: 0.5s;
 }
 
-/*Attendance List serction  */
 .attendance{
   margin-top: 20px;
   text-transform: capitalize;
@@ -217,6 +221,8 @@ table thead tr{
   width: 50%;
   text-align: center;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px;
+ 
 }
 .login a{
   text-align: center;

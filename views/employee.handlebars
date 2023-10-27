@@ -37,7 +37,13 @@
       {{#if themsg}}
       <div class="danger">
       <i class="fa fa-close" style="font-size:20px;color:red"></i>
-      {{addMsg}}
+      {{themsg}}
     </div>
       {{/if}}
+       <script>
+
+        setTimeout(function () {
+        document.querySelector('.danger').style.display = 'none'; },
+        3500);
+      </script>
 </div>
