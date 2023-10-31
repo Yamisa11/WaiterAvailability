@@ -25,6 +25,10 @@ export default function WaiterDBLogic(database) {
     }
   }
   async function createRoster(waiterid, weekdayid) {
+
+    await database.none(`DELETE FROM shifts WHERE waiterid = $1`, [
+      waiterid,
+    ]);
     await database.any(
       "INSERT INTO shifts (waiterid, weekdayid) VALUES ($1, $2)",
       [waiterid, weekdayid]
@@ -33,7 +37,7 @@ export default function WaiterDBLogic(database) {
 
   async function joinFunction() {
     const daysQuery = `
-                    SELECT  * FROM shifts  
+                    SELECT * FROM shifts  
                     JOIN days ON days.id = shifts.weekdayid
                     JOIN waiters ON waiters.id = shifts.waiterid
                 `;
