@@ -29,10 +29,13 @@ export default function WaiterDBLogic(database) {
     await database.none(`DELETE FROM shifts WHERE waiterid = $1`, [
       waiterid,
     ]);
-    await database.any(
-      "INSERT INTO shifts (waiterid, weekdayid) VALUES ($1, $2)",
-      [waiterid, weekdayid]
-    );
+    for (let i = 0; i < weekdayid.length; i++) {
+      const element = weekdayid[i];
+      await database.any(
+        "INSERT INTO shifts (waiterid, weekdayid) VALUES ($1, $2)",
+        [waiterid, element]
+      );
+    }
   }
 
   async function joinFunction() {

@@ -83,11 +83,15 @@ app.post("/waiters/:username", async (req,res) => {
   let user = req.params.username
   let waiterId = await database.getWaiterId(user)
  console.log(theDays);
- let theRes = await waiterFunction.addShift(waiterId,theDays)
-if (theRes) {
+ 
+if (theDays === undefined) {
+  req.flash("message","Please select your days")
+}else{
+  await database.createRoster(waiterId,theDays)
   req.flash("addMsg", "Successfully added to the roster!")
 }
- req.flash("message","Please select your days")
+
+
  
  res.redirect(user)
 })
@@ -101,8 +105,8 @@ app.get("/waiters/:username", async (req,res) => {
   
    res.render("employee",{
     theUsername: username,
-    addMsg : themsg? "" : addMsg,
-    themsg: addMsg? "" : themsg,
+    addMsg : addMsg,
+    themsg: themsg,
     selectedDays : results
    })
 })
