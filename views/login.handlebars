@@ -1,12 +1,13 @@
 <div class="log-page">
-  <h1 style="text-align: center;">Welcome!</h1>
+  <h1 style="text-align: center;">YM Cafe</h1>
+  <img src="../public/images/logo.png" alt="logo">
   <div class="login">
   <i class='fas fa-user-alt' style='font-size:38px; text-align: center';></i>
   <h3 style="text-align: center;">login</h3>
    
   {{#each allWaiters}}
     <div class="waiters">
-    <span> {{username}} <a href="waiters/{{username}}">add days</a> </span>
+    <span class="make"> {{username}} <a href="waiters/{{username}}">add days</a> </span>
     </div>
   {{/each}}
 

@@ -40,12 +40,41 @@ export default function WaiterDBLogic(database) {
     const results = await database.any(daysQuery);
     return results;
   }
-  async function getWeekday(id) {
-    await database.any("SELECT weekday FROM days WHERE id = $1", [id]);
+  async function getWeekday() {
+    await database.any("SELECT * FROM days");
   }
   async function getWaiters() {
     const result = await database.any("SELECT * FROM waiters");
     return result;
+  }
+  async function getWaiterSelectedDays(username) {
+    try {
+      
+      let selectedDays = await database.any(
+        `select DISTINCT weekdayid from shifts
+    join waiters on waiters.id = shifts.waiterid
+    join days on days.id = shifts.weekdayid
+    where username = $1`,
+        [username]
+      );
+     
+      let weekdays = await database.any("SELECT * FROM days");
+     
+      for (let i = 0; i < weekdays.length; i++) {
+        const weekday = weekdays[i];
+      
+        for (let y = 0; y < selectedDays.length; y++) {
+          const waiterDays = selectedDays[y];
+         
+          if (weekday.id === waiterDays.weekdayid) {
+            weekday.checked = "true";
+          }
+        }
+      }
+      return weekdays;
+    } catch (error) {
+      throw error;
+    }
   }
 
   async function getWaiterDays(username) {
@@ -69,5 +98,6 @@ export default function WaiterDBLogic(database) {
     getWaiters,
     joinFunction,
     getWaiterDays,
+    getWaiterSelectedDays
   };
 }

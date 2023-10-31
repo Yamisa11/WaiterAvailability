@@ -42,7 +42,7 @@ app.get("/", async (req,res) => {
 app.post("/", async (req,res) => {
   let logPass = req.body.login
 
-  if (logPass == "yamisa") {
+  if (logPass === "yamisa") {
     res.redirect("/days")
   }
   else{
@@ -96,8 +96,8 @@ app.get("/waiters/:username", async (req,res) => {
     let username = req.params.username
     let addMsg = req.flash("addMsg")
     let themsg = req.flash("message")
-    let results = await database.getWaiterDays(username)
-  console.log(addMsg);
+    let results = await database.getWaiterSelectedDays(username)
+  console.log(results);
   
    res.render("employee",{
     theUsername: username,

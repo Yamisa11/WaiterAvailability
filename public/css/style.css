@@ -23,7 +23,7 @@ a{
   position: relative;
   width: 280px;
   font-size: 14px;
-  color: rgb(85, 83, 83);
+  color: whitesmoke;
   
   padding: 10px;
 }
@@ -182,6 +182,7 @@ table thead tr{
   font-size: x-large;
   border: 1px solid rgb(181, 176, 176);
   text-align: center;
+  color: whitesmoke;
 } 
 .employee button{
   width: 43%;
@@ -192,6 +193,7 @@ table thead tr{
   background: transparent;
   border: 1px solid #4AD489;
   font-size: large;
+  color: whitesmoke;
 }
 .employee button:hover{
   background: #4AD489;
@@ -199,15 +201,15 @@ table thead tr{
   transition: 0.5rem;
 }
 .back{
-  width: 73%;
+  width: 43%;
   margin-top: 8px;
-  margin-left: 18em;
   padding: 7px;
   cursor: pointer;
   border-radius: 10px;
   background: transparent;
   border: 1px solid #6d8678;
   font-size: large;
+  color: whitesmoke;
 }
 .back:hover{
   background: #4AD489;
@@ -229,6 +231,9 @@ border-radius: 10px;
   width: 80%;
   margin-top: 15%;
 }
+.login a:hover{
+  background-color: #6d8678;
+}
 .login button{
   width: 20%;
   margin-top: 8px;
@@ -249,4 +254,9 @@ border-radius: 10px;
   margin : 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
+}
+.make{
+  font-size: x-large;
+  font-weight: bold;
+  text-align: left !important ;
 }
