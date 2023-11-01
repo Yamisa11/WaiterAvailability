@@ -210,6 +210,7 @@ table thead tr{
   border: 1px solid #6d8678;
   font-size: large;
   color: whitesmoke;
+  margin-left: 28%;
 }
 .back:hover{
   background: #4AD489;
@@ -259,4 +260,19 @@ border-radius: 10px;
   font-size: x-large;
   font-weight: bold;
   text-align: left !important ;
+}
+.list{
+font-size: large;
+font-weight: bold;
+
+}
+.allWaiters{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  width: 30%;
+  text-align: center;
+}
+.together{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

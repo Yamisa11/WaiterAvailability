@@ -83,6 +83,12 @@ export default function WaiterDBLogic(database) {
       throw error;
     }
   }
+  async function newWaiter(username){
+    await database.any(
+      "INSERT INTO waiters (username) VALUES ($1)",
+      [username]
+    )
+  }
 
   async function getWaiterDays(username) {
     let id = await getWaiterId(username);
@@ -105,6 +111,7 @@ export default function WaiterDBLogic(database) {
     getWaiters,
     joinFunction,
     getWaiterDays,
-    getWaiterSelectedDays
+    getWaiterSelectedDays,
+    newWaiter
   };
 }

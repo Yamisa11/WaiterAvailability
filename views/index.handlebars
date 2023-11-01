@@ -3,10 +3,71 @@
   <section class="main">
 
     <section class="attendance">
+
+      <div class="together">
+        <div class="allWaiters">
+          <h2>Waiters</h2>
+
+          {{#each theWaiters}}
+            <ul class="list">-{{username}}</ul>
+          {{/each}}
+
+        </div>
+        <div class="targets" style="width: 30%;">
+          <h2>Targets</h2>
+          <div
+            class="green"
+            style="background-color: #6bf677; font-size:large; height:2.5em"
+          >
+            enough waiters for the day
+          </div>
+          <div
+            class="red"
+            style="background-color: crimson; font-size:large; height:2.5em"
+          >
+            eess waiters for the day
+          </div>
+          <div
+            class="orange"
+            style="background-color: rgb(246, 198, 109); font-size:large; height:2.5em"
+          >
+            less waiters for the day
+          </div>
+        </div>
+
+        <div class="new" style="width: 30%;">
+          <h2>Add new waiter</h2>
+
+          <form action="/create" method="post">
+            <input type="text" name="newWaiter" id="" style="height: 2.3em;" />
+            <button
+              type="submit"
+              style="  margin-top: 8px;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 10px;
+  background:  #4AD489;;
+  border: 1px solid #4AD489;"
+            > add</button>
+          </form>
+          {{#if newMsg}}
+            <div class="success">
+              {{newMsg}}
+            </div>
+          {{/if}}
+          <script>
+
+            setTimeout(function () {
+            document.querySelector('.success').style.display = 'none'; }, 3500);
+          </script>
+        </div>
+      </div>
+
       <div class="attendance-list">
         <form action="/reset" method="post">
           <h1>Roster <button class="reset">Reset roster</button></h1>
         </form>
+
         <table class="table">
           <thead>
             <tr>
@@ -42,16 +103,15 @@
     </section>
 
     {{#if resetMessage}}
-    <div class="success-msg">
-      <i class="fa fa-check"></i>
-      {{resetMessage}}
-    </div>
+      <div class="success-msg">
+        <i class="fa fa-check"></i>
+        {{resetMessage}}
+      </div>
     {{/if}}
-     <script>
+    <script>
 
-        setTimeout(function () {
-        document.querySelector('.success-msg').style.display = 'none'; },
-        3500);
-      </script>
+      setTimeout(function () {
+      document.querySelector('.success-msg').style.display = 'none'; }, 3500);
+    </script>
   </section>
 </div>

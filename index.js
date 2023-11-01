@@ -61,6 +61,7 @@ app.get("/days", async (req, res) => {
   let thursClass = await waiterFunction.checkClass(rosterDays.Thursday)
   let friClass = await waiterFunction.checkClass(rosterDays.Friday)
   let resetMsg = req.flash("resetMsg")
+  let newMsg = req.flash("newMsg")
   
 
     res.render("index",{
@@ -72,7 +73,7 @@ app.get("/days", async (req, res) => {
       thursClass : thursClass,
       friClass : friClass,
       resetMessage: resetMsg,
-      
+      newMsg : newMsg
 
 
     });
@@ -116,7 +117,12 @@ app.post("/reset", async (req,res) => {
   req.flash("resetMsg", "Successfully cleared roster!");
   res.redirect("/days")
 })
-
+app.post("/create", async (req,res) => {
+let newWaiter = req.body.newWaiter
+await database.newWaiter(newWaiter)
+req.flash("newMsg", "Successfully added!")
+res.redirect("/days")
+})
 
 let PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
