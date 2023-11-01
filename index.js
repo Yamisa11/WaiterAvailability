@@ -83,7 +83,7 @@ app.post("/waiters/:username", async (req,res) => {
   let theDays = req.body.weekday
   let user = req.params.username
   let waiterId = await database.getWaiterId(user)
- console.log(theDays);
+ 
  
 if (theDays === undefined) {
   req.flash("message","Please select your days")
