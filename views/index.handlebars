@@ -51,14 +51,14 @@
             > add</button>
           </form>
           {{#if newMsg}}
-            <div class="success">
+            <div class="success-msg">
               {{newMsg}}
             </div>
           {{/if}}
           <script>
 
             setTimeout(function () {
-            document.querySelector('.success').style.display = 'none'; }, 3500);
+            document.querySelector('.success-msg').style.display = 'none'; }, 3500);
           </script>
         </div>
       </div>
@@ -111,7 +111,7 @@
     <script>
 
       setTimeout(function () {
-      document.querySelector('.success-msg').style.display = 'none'; }, 3500);
+      document.querySelector('.success-msg').style.display = 'none'; }, 3510);
     </script>
   </section>
 </div>
