@@ -33,6 +33,8 @@ app.use(flash());
 app.get("/", async (req,res) => {
   let allWaiters = await waiterFunction.getAllWaiters()
   let msg = req.flash("msg")
+  
+ 
   res.render("login", {
     allWaiters: allWaiters,
     msg : msg
@@ -62,7 +64,8 @@ app.get("/days", async (req, res) => {
   let friClass = await waiterFunction.checkClass(rosterDays.Friday)
   let resetMsg = req.flash("resetMsg")
   let newMsg = req.flash("newMsg")
-  
+  let existMsg = req.flash("existMsg")
+
 
     res.render("index",{
       waitersList : rosterDays,
@@ -73,8 +76,8 @@ app.get("/days", async (req, res) => {
       thursClass : thursClass,
       friClass : friClass,
       resetMessage: resetMsg,
-      newMsg : newMsg
-
+      newMsg : newMsg,
+      existMsg : existMsg
 
     });
   })
@@ -119,7 +122,13 @@ app.post("/reset", async (req,res) => {
 })
 app.post("/create", async (req,res) => {
 let newWaiter = req.body.newWaiter
-await database.newWaiter(newWaiter)
+let theRes = await database.checkExistingWaiter(newWaiter)
+if (theRes == [] ) {
+  req.flash("existMsg", "Already exists!");
+}else{
+  await database.newWaiter(newWaiter)
+  
+}
 req.flash("newMsg", "Successfully added!")
 res.redirect("/days")
 })
