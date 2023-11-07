@@ -1,19 +1,22 @@
 <div class="log-page">
   <h1 style="text-align: center;">YM Cafe</h1>
-  <div class="login">
+ <div class="content">
+   <div class="login">
   <i class='fas fa-user-alt' style='font-size:38px; text-align: center';></i>
-  <h3 style="text-align: center;">login</h3>
+  <h2 style="text-align: center;">waiter login</h2>
    
   {{#each allWaiters}}
     <div class="waiters">
     <span class="make"> {{username}} <a href="waiters/{{username}}">add days</a> </span>
     </div>
   {{/each}}
-
+</div>
   <div class="adminLogin">
+     <i class='fas fa-user-alt' style='font-size:38px; text-align: center';></i>
     <h2>Admin login</h2>
+   
     <form action="/" method="post">
-        <input type="password" name="login">
+        <input type="password" name="login" placeholder="Enter password">
         <button type="submit">login</button>
     </form>
     <h5 class="danger">{{msg}}</h5>
@@ -24,6 +27,7 @@
         3500);
       </script>
   </div>
-  </div>
+  
 
 </div>
+ </div>

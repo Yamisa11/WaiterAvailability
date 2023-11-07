@@ -16,7 +16,11 @@ body{
   background-size: cover;
 }
 .container{
+  margin: auto;
+  padding: auto;
   background: rgb(226, 226, 226);
+  margin-top: 7%;
+  width: 80%;
 }
 
 a{
@@ -217,10 +221,10 @@ table thead tr{
   color: #fff;
   transition: 0.5rem;
 }
-.login{
+.log-page{
   padding: auto;
   margin: auto;
-  margin-top: 10em;
+  margin-top: 5em;
   width: 50%;
   text-align: center;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -235,9 +239,9 @@ border-radius: 10px;
 .login a:hover{
   background-color: #6d8678;
 }
-.login button{
-  width: 20%;
-  margin-top: 8px;
+.adminLogin button{
+  width: 90%;
+  margin-top: 1.8em;
   padding: 7px;
   cursor: pointer;
   border-radius: 10px;
@@ -245,10 +249,13 @@ border-radius: 10px;
   border: 1px solid #4AD489;
   font-size: large;
 }
-.login input{
-  border-radius: 10px;
-  font-size: x-large;
-  height: 1.8em;
+.adminLogin input{
+  margin-top: 1em;
+  border-radius: 5px;
+  width: 90%;
+font-size: larger;
+  height: 2.2em;
+  padding: 10px;
 }
 .waiters{
   width: 100%;
@@ -275,4 +282,13 @@ font-weight: bold;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.content{
+  margin-top: 5em;
+  display: flex !important;
+  flex-direction:row !important;
+  justify-content: space-between;
+}
+.login, .adminLogin{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

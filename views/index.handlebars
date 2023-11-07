@@ -5,14 +5,6 @@
     <section class="attendance">
 
       <div class="together">
-        <div class="allWaiters">
-          <h2>Waiters</h2>
-
-          {{#each theWaiters}}
-            <ul class="list">-{{username}}</ul>
-          {{/each}}
-
-        </div>
         <div class="targets" style="width: 30%;">
           <h2>Targets</h2>
           <div
@@ -25,7 +17,7 @@
             class="red"
             style="background-color: crimson; font-size:large; height:2.5em"
           >
-            eess waiters for the day
+          excess waiters for the day
           </div>
           <div
             class="orange"
@@ -37,18 +29,22 @@
 
         <div class="new" style="width: 30%;">
           <h2>Add new waiter</h2>
-
+            <label>Enter waiter username: </label>
           <form action="/create" method="post">
-            <input type="text" name="newWaiter" id="" style="height: 2.3em;" />
-            <button
+            <input type="text" name="newWaiter" id="" style="height: 2.3em; border-radius:5px; width: 80%;margin-top:1em" />
+         <div>
+             <button
               type="submit"
               style="  margin-top: 8px;
   padding: 7px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
   background:  #4AD489;;
-  border: 1px solid #4AD489;"
-            > add</button>
+  border: 1px solid #4AD489;
+  width:80%;
+  margin-top:1em"
+            > submit</button>
+         </div>
           </form>
           {{#if newMsg}}
             <div class="success-msg">
@@ -58,7 +54,8 @@
           <script>
 
             setTimeout(function () {
-            document.querySelector('.success-msg').style.display = 'none'; }, 3500);
+            document.querySelector('.success-msg').style.display = 'none'; },
+            3500);
           </script>
           {{#if existMsg}}
             <div class="danger">
