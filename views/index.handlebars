@@ -31,7 +31,7 @@
           <h2>Add new waiter</h2>
             <label>Enter waiter username: </label>
           <form action="/create" method="post">
-            <input type="text" name="newWaiter" id="" style="height: 2.3em; border-radius:5px; width: 80%;margin-top:1em" />
+            <input type="text" name="newWaiter" id="" style="height: 2.3em; border-radius:5px; width: 90%;margin-top:1em" />
          <div>
              <button
               type="submit"
@@ -41,7 +41,7 @@
   border-radius: 5px;
   background:  #4AD489;;
   border: 1px solid #4AD489;
-  width:80%;
+  width:90%;
   margin-top:1em"
             > submit</button>
          </div>
@@ -57,12 +57,19 @@
             document.querySelector('.success-msg').style.display = 'none'; },
             3500);
           </script>
-          {{#if existMsg}}
-            <div class="danger">
+         
+            <div class="error-msg">
+               <i class="fa fa-close" style="font-size:20px;color:red"></i>
               {{existMsg}}
+              {{enterMsg}}
             </div>
-          {{/if}}
+        
+          <script>
 
+            setTimeout(function () {
+            document.querySelector('.error-msg').style.display = 'none'; },
+            3500);
+          </script>
         </div>
       </div>
 

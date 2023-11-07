@@ -65,6 +65,7 @@ app.get("/days", async (req, res) => {
   let resetMsg = req.flash("resetMsg")
   let newMsg = req.flash("newMsg")
   let existMsg = req.flash("existMsg")
+  let enterMsg = req.flash("enterMsg")
 
 
     res.render("index",{
@@ -77,8 +78,8 @@ app.get("/days", async (req, res) => {
       friClass : friClass,
       resetMessage: resetMsg,
       newMsg : newMsg,
-      existMsg : existMsg
-
+      existMsg : existMsg,
+      enterMsg: enterMsg
     });
   })
 
@@ -123,13 +124,21 @@ app.post("/reset", async (req,res) => {
 app.post("/create", async (req,res) => {
 let newWaiter = req.body.newWaiter
 let theRes = await database.checkExistingWaiter(newWaiter)
-if (theRes == [] ) {
-  req.flash("existMsg", "Already exists!");
+if (newWaiter == "") {
+  req.flash("enterMsg", "Enter username")
 }else{
-  await database.newWaiter(newWaiter)
-  
+  for (let i = 0; i < theRes.length; i++) {
+    const element = theRes[i].username;
+    if (element == newWaiter ) {
+      req.flash("existMsg", "Already exists!");
+    }else{
+      await database.newWaiter(newWaiter)
+      req.flash("newMsg", "Successfully added!")
+    }
+    
+  }
 }
-req.flash("newMsg", "Successfully added!")
+
 res.redirect("/days")
 })
 

@@ -177,6 +177,13 @@ table thead tr{
   color: #270;
   background-color: #DFF2BF;
 }
+.error-msg {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+  color:crimson;
+  background-color: rgb(247, 114, 140);;
+}
 .employee{
   margin: auto !important;
   padding-top: 4.5em !important;
