@@ -57,13 +57,24 @@
             document.querySelector('.success-msg').style.display = 'none'; },
             3500);
           </script>
-         
+          {{#if existMsg}}
             <div class="error-msg">
                <i class="fa fa-close" style="font-size:20px;color:red"></i>
               {{existMsg}}
+            </div>
+          {{/if}}
+          <script>
+
+            setTimeout(function () {
+            document.querySelector('.error-msg').style.display = 'none'; },
+            3500);
+          </script>
+              {{#if enterMsg}}
+            <div class="error-msg">
+               <i class="fa fa-close" style="font-size:20px;color:red"></i>
               {{enterMsg}}
             </div>
-        
+          {{/if}}
           <script>
 
             setTimeout(function () {
