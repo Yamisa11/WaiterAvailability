@@ -265,8 +265,7 @@ font-size: larger;
 }
 .make{
   font-size: x-large;
-  font-weight: bold;
-  text-align: left !important ;
+
 }
 .list{
 font-size: large;
@@ -283,6 +282,7 @@ font-weight: bold;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .content{
   margin-top: 5em;
   display: flex !important;
