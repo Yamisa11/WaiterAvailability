@@ -88,6 +88,7 @@ export default function WaiterDBLogic(database) {
       "INSERT INTO waiters (username) VALUES ($1)",
       [username]
     )
+    
   }
 
   async function getWaiterDays(username) {

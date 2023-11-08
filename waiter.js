@@ -4,7 +4,7 @@ export default function WaiterAvailability(database) {
     for (let i = 0; i < theDaysId.length; i++) {
       const element = parseInt(theDaysId[i]);
       await database.createRoster(theWaiterId, element);
-      console.log("added day " + element);
+     
     }
   }
   async function getAllWaiters() {

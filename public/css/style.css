@@ -298,3 +298,35 @@ font-weight: bold;
 .login, .adminLogin{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.newer{
+  padding: auto;
+  margin: auto;
+  margin-top: 10em;
+  width: 50%;
+  text-align: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+border-radius: 10px;
+ color : whitesmoke
+}
+.newer button{
+  width: 43%;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: #4AD489;
+  border: 1px solid #4AD489;
+  font-size: large;
+}
+.newer input{
+  width: 43%;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+font-size: larger;
+  height: 2em;
+  padding: 10px;
+}
+.theLink{
+  color: #34AF6D;
+  font-size: larger;
+}

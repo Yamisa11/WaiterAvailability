@@ -127,20 +127,45 @@ let theRes = await database.checkExistingWaiter(newWaiter)
 if (newWaiter == "") {
   req.flash("enterMsg", "Enter username")
 }else{
-  for (let i = 0; i < theRes.length; i++) {
-    const element = theRes[i].username;
-    if (element == newWaiter ) {
-      req.flash("existMsg", "Already exists!");
-    }else{
-      await database.newWaiter(newWaiter)
-      req.flash("newMsg", "Successfully added!")
-    }
-    
+  if (theRes.length > 0 ) {
+    req.flash("existMsg", "Already exists!");
+  }
+  if (theRes.length == 0) {
+    await database.newWaiter(newWaiter)
+    req.flash("newMsg", "Successfully added!")
   }
 }
 
 res.redirect("/days")
 })
+
+app.get("/signup", (req,res) => {
+  let newMsg = req.flash("newMsg")
+  let existMsg = req.flash("existMsg")
+  let enterMsg = req.flash("enterMsg")
+  res.render("newEmployee", {
+    newMsg : newMsg,
+      existMsg : existMsg,
+      enterMsg: enterMsg
+  })
+})
+app.post("/signup", async (req,res) => {
+  let signWaiter = req.body.signWaiter
+  let theResult = await database.checkExistingWaiter(signWaiter)
+  if (signWaiter == "") {
+    req.flash("enterMsg", "Enter username")
+  }else{
+      if (theResult.length > 0 ) {
+        req.flash("existMsg", "Already exists!");
+      }
+      if (theResult.length == 0) {
+        await database.newWaiter(signWaiter)
+        req.flash("newMsg", "Successfully added!")
+      }
+  }
+  
+  res.redirect("/signup")
+  })
 
 let PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {

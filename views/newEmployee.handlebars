@@ -1,14 +1,49 @@
-<div class="new">
-    <h1>Please enter employee details below: </h1>
+<div class="newer">
+    <h1>Enter employee username below: </h1>
     <p>The employee username must be unique. </p>
 
-    <form action="/create" method="post" class="newEmp">
-        <label class="create">Enter username:  <input type="text" name="theUsername"> </label>
-
-      <div class="radio">
-          <label class="create"> Admin<input type="radio" name="theRole" value="admin"> </label>
-        <label class="create"> Employee<input type="radio" name="theRole" value="employee"> </label>
-      </div>
-        <button type="submit">submit</button>
+    <form action="/signup" method="post" class="newEmp">
+         <input type="text" name="signWaiter" placeholder="enter username">
+        <div>
+          <button type="submit">submit</button>
+        </div>
     </form>
+     <div class="back">
+      <a href="/">Cancel</a>
+    </div>
+      {{#if newMsg}}
+            <div class="success-msg">
+              {{newMsg}}
+            </div>
+          {{/if}}
+          <script>
+
+            setTimeout(function () {
+            document.querySelector('.success-msg').style.display = 'none'; },
+            3500);
+          </script>
+          {{#if existMsg}}
+            <div class="error-msg">
+               <i class="fa fa-close" style="font-size:20px;color:red"></i>
+              {{existMsg}}
+            </div>
+          {{/if}}
+          <script>
+
+            setTimeout(function () {
+            document.querySelector('.error-msg').style.display = 'none'; },
+            3500);
+          </script>
+              {{#if enterMsg}}
+            <div class="error-msg">
+               <i class="fa fa-close" style="font-size:20px;color:red"></i>
+              {{enterMsg}}
+            </div>
+          {{/if}}
+          <script>
+
+            setTimeout(function () {
+            document.querySelector('.error-msg').style.display = 'none'; },
+            3500);
+          </script>
 </div>
