@@ -25,10 +25,7 @@ export default function WaiterDBLogic(database) {
     }
   }
   async function createRoster(waiterid, weekdayid) {
-
-    await database.none(`DELETE FROM shifts WHERE waiterid = $1`, [
-      waiterid,
-    ]);
+    await database.none(`DELETE FROM shifts WHERE waiterid = $1`, [waiterid]);
     for (let i = 0; i < weekdayid.length; i++) {
       const element = weekdayid[i];
       await database.any(
@@ -56,7 +53,6 @@ export default function WaiterDBLogic(database) {
   }
   async function getWaiterSelectedDays(username) {
     try {
-      
       let selectedDays = await database.any(
         `select DISTINCT weekdayid from shifts
     join waiters on waiters.id = shifts.waiterid
@@ -64,15 +60,15 @@ export default function WaiterDBLogic(database) {
     where username = $1`,
         [username]
       );
-     
+
       let weekdays = await database.any("SELECT * FROM days");
-     
+
       for (let i = 0; i < weekdays.length; i++) {
         const weekday = weekdays[i];
-      
+
         for (let y = 0; y < selectedDays.length; y++) {
           const waiterDays = selectedDays[y];
-         
+
           if (weekday.id === waiterDays.weekdayid) {
             weekday.checked = "true";
           }
@@ -83,24 +79,29 @@ export default function WaiterDBLogic(database) {
       throw error;
     }
   }
-  async function newWaiter(username){
-    await database.any(
-      "INSERT INTO waiters (username) VALUES ($1)",
-      [username]
-    )
-    
+  async function newWaiter(username) {
+    await database.any("INSERT INTO waiters (username) VALUES ($1)", [
+      username,
+    ]);
   }
 
   async function getWaiterDays(username) {
     let id = await getWaiterId(username);
-    const result = await database.any(`SELECT weekdayid FROM shifts WHERE waiterid = ${id}`);
+    const result = await database.any(
+      `SELECT weekdayid FROM shifts WHERE waiterid = ${id}`
+    );
     return result;
   }
   async function reset() {
     await database.none("truncate shifts");
   }
 
-
+  async function pass() {
+    let username = await database.one(
+      "SELECT username FROM waiters WHERE id = 1"
+    );
+    return username;
+  }
 
   return {
     checkExistingWaiter,
@@ -113,6 +114,7 @@ export default function WaiterDBLogic(database) {
     joinFunction,
     getWaiterDays,
     getWaiterSelectedDays,
-    newWaiter
+    newWaiter,
+    pass,
   };
 }
