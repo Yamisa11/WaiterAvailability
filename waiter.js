@@ -26,7 +26,7 @@ export default function WaiterAvailability(database) {
       if (weekdaysData[day]) {
         weekdaysData[day].push(username);
       } else {
-        console.error(`Invalid weekday: ${weekday}`);
+        console.error(`Invalid weekday : ${weekday}`);
       }
     });
 
