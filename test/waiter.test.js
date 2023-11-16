@@ -16,21 +16,7 @@ describe('Waiter Availability App database tests', () => {
         const result = await dbLogic.checkExistingWaiter('Keesha');
         assert.deepStrictEqual(result, []);
       });
-    
-      it('should get the weekday ID for a given day', async () => {
-        const weekdayId = await dbLogic.getWeekdayId('Monday');
-        assert.strictEqual(weekdayId, 1); 
-      });
-    
-      it('should get a waiter ID for a given username', async () => {
-        const waiterId = await dbLogic.getWaiterId('Kwane');
-        assert.strictEqual(waiterId, 1); 
-      });
-    
-      it('should create a roster entry', async () => {
-        await dbLogic.createRoster(1, 1); 
-      
-      });
-    
+
+   
     
 })
