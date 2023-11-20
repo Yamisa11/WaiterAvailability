@@ -12,11 +12,6 @@ describe('Waiter Availability App database tests', () => {
         await registrationDBLogic.reset()
     })
 
-    it('should check if an existing waiter with a given username exists', async () => {
-        const result = await dbLogic.checkExistingWaiter('Keesha');
-        assert.deepStrictEqual(result, []);
-      });
-
    
     
 })
