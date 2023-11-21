@@ -8,9 +8,6 @@ const db = pgPromise()(connectionString);
 describe('Waiter Availability App database tests', () => {
     let registrationDBLogic = waiterDBLogic(db)
 
-    beforeEach(async () => {
-        await registrationDBLogic.reset()
-    })
 
    
     
